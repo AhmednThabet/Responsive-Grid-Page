@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --body-bg: #eaf1f9;
+  --first-bg-color: #7742c9;
+  --second-bg-color: #49556b;
+  --fourth-bg-color: #18202d;
+  --small-font-color: #9fa6b1;
+}
+img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 16px;
+  background-color: var(--body-bg);
+  /* height: 100vh; */
+}
+
+.grid-container {
+  /* width: 80%;
+  height: 60%; */
+
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-areas:
+    "first first second fifth"
+    "third fourth fourth fifth";
+  padding: 1em 2em;
+}
+@media (min-width: 240px) and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "first"
+      "second"
+      "third"
+      "fourth"
+      "fifth";
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "first first"
+      "second fifth"
+      "third fifth"
+      "fourth fourth";
+  }
+}
+@media (min-width: 1024px) and (max-width: 1300px) {
+  .grid-container {
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-areas:
+      "first first first fifth"
+      "third second second fifth"
+      "fourth fourth fourth fifth";
+  }
+}
+@media (min-width: 1300px) {
+  .grid-container {
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-areas:
+      "first first second fifth"
+      "third fourth fourth fifth";
+  }
+}
+
+.grid-container > * {
+  border-radius: 10px;
+  padding: 1em 2em;
+  box-shadow: 5px 10px 8px #888888;
+}
+.first-card {
+  background-color: var(--first-bg-color);
+
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  grid-area: first;
+}
+.first-card img,
+.fourth-card img {
+  border: 2px solid #a279e2;
+}
+.second-card {
+  background-color: var(--second-bg-color);
+  grid-area: second;
+}
+.third-card {
+  background-color: white;
+  grid-area: third;
+}
+.fourth-card {
+  background-color: var(--fourth-bg-color);
+  color: white;
+
+  grid-area: fourth;
+}
+.fifth-card {
+  background-color: white;
+  /* grid-column: 4; */
+  /* grid-row: 1 /3; */
+  grid-area: fifth;
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+#spacialTitle {
+  color: #666a74;
+  font-weight: 700;
+}
+.articalTitle {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.articalDescription {
+  font-size: 1.5rem;
+  color: var(--small-font-color);
+  padding-top: 2em;
+}
